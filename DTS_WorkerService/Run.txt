@@ -1,0 +1,17 @@
+1. Windows Service phải publish (không dùng bin/debug)
+Right click project → Publish → Folder -> Finish . 
+Nhớ nhấn Public tạo folder vật lý
+2. Cài Windows Service bằng sc
+Mở CMD Admin:
+sc create DTS_WorkerService binPath= "D:\DTS\DTS_WorkerService\bin\Release\net8.0\publish\DTS_WorkerService.exe"
+sc create DTS_WorkerService binPath= "D:\DTS\DTS_WorkerService\bin\Release\net8.0\publish\DTS_WorkerService.exe" start="demand" displayname="DTS worker service"
+
+3. Start service
+cd D:\DTS\DTS_WorkerService\bin\Release\net8.0\publish\
+net start DTS_WorkerService
+4. Lệnh xoá service khi cần
+sc delete DTS_WorkerService
+5. Kiểm tra service đang trỏ tới path nào
+sc qc DTS_WorkerService
+D:\DTS\DTS_WorkerService\bin\Release\net8.0\publish\DTS_WorkerService.exe
+6.
